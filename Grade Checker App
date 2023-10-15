@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Grade Checker</h1>
+        <input type="text" id="studentID" placeholder="Student ID">
+        <input type="button" value="Check Grades" onclick="checkGrades()">
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkGrades() {
+            var studentID = document.getElementById('studentID').value;
+            // You would typically make an AJAX request to a server here to fetch the grades.
+            // For this example, we'll just show a hardcoded result.
+            var grades = {
+                Math: 'A',
+                Science: 'B',
+                History: 'C'
+            };
+            displayGrades(grades);
+        }
+
+        function displayGrades(grades) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h2>Grades</h2>';
+            for (var subject in grades) {
+                resultDiv.innerHTML += subject + ': ' + grades[subject] + '<br>';
+            }
+        }
+    </script>
+</body>
+</html>
